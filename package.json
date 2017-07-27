@@ -1,0 +1,33 @@
+{
+  "name": "vikserver",
+  "version": "0.0.1",
+  "description": "Almaacén de links enfocado en la velocidad",
+  "main": "main.js",
+  "scripts": {
+    "test": "node test.js",
+	"start": "node main.js",
+	"init": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrvik/vikserver2.git"
+  },
+  "keywords": [
+    "links",
+    "jquery",
+    "mysql",
+    "php",
+	"nodeJS"
+  ],
+  "author": "MrViK",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mrvik/vikserver2/issues"
+  },
+  "homepage": "https://github.com/mrvik/vikserver2#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "node-php": "0.0.1",
+    "path": "^0.12.7"
+  }
+}

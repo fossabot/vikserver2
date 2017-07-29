@@ -1,5 +1,6 @@
 # VikServer2
 ## Esto es un fork de mrvik/vikserver con algunas diferencias
+[![Build Status](https://travis-ci.org/mrvik/vikserver2.svg?branch=master)](https://travis-ci.org/mrvik/vikserver2)
 
 - Básicamente tratamos de conseguir lo mismo, un trastero donde puedas asegurar todos tus links
 - Este proyecto se centrará en la velocidad y la seguridad

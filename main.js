@@ -1,20 +1,21 @@
 const express=require("express");
-const php=require("node-php");
 const path=require("path");
 const propiedades={
 	root: path.resolve(__dirname),
 	puerto: 8888 || process.env.PORT,
 	index: "/index.html",
-	php: RegExp(/(.*\.php)/g),
-	noPHP: RegExp(/.*/)
+	path: RegExp(/.*/)
 };
 var app=express();
-app.use(propiedades.php, php.cgi(propiedades.root));
 app.get("/", (req, res)=>{
 	res.sendFile(propiedades.root+propiedades.index);
 });
-app.get(propiedades.noPHP, (req, res)=>{
-	res.sendFile(propiedades.root+req.url);
+app.get(propiedades.path, (req, res)=>{
+	if(req._parsedUrl.path.match(/(.*\.php)/)){
+		res.status(403).send("<h2>Lo sentimos, pero no podemos devolver ese tipo de archivos</h2>");
+	}else{
+		res.sendFile(propiedades.root+req.url);
+	}
 });
 app.listen(propiedades.puerto, ()=>{
 	console.log("Servidor iniciado en el puerto "+propiedades.puerto);

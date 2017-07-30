@@ -1,5 +1,7 @@
 #!/bin/bash
 for i in $(ls); do
-	#curl --ftp-create-dirs -T "$i" -u $FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital/public_shtml/
-	curl --ftp-create-dirs -T "$i" -u $FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital/public_html/
+	curlftpfs -o user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital .travis/ftp
+	cp -ur * .travis/ftp/public_html
+	cp -ur * .travis/ftp/public_shtml
+	fusermount -u .travis/ftp
 done

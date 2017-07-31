@@ -32,6 +32,10 @@ footer{
 		width: 90%;
 	}
 }
+#visor{
+	width: 100%;
+	display: none;
+}
 
 /* Elementos por clase */
 .centro-ventana{

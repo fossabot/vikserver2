@@ -4,3 +4,6 @@
 [submodule "lib/typedjs"]
 	path = lib/typedjs
 	url = https://github.com/mattboldt/typed.js.git
+[submodule "lib/fontAwesome"]
+	path = lib/fontAwesome
+	url = https://github.com/FortAwesome/Font-Awesome.git

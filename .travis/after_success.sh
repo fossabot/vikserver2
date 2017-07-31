@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Eliminando módulos de Node"
+rm -rf node_modules package-lock.json
 echo "Creando directorio para FTP"
 mkdir .travis/ftp
 echo "Montando FTP con fuse"

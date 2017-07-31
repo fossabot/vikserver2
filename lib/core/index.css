@@ -27,6 +27,11 @@ footer{
 	top:0; bottom: 0; left: 0; right: 0;
 	position: fixed;
 }
+@media screen and (max-width: 480px){
+	#index-menu{
+		width: 90%;
+	}
+}
 
 /* Elementos por clase */
 .centro-ventana{

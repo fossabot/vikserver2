@@ -18,12 +18,12 @@ footer{
 #index-menu{
 	background-color: #566573;
 	opacity: 0.7;
-	border-radius: 8% 0%;
+	border-radius: 10% 2%;
 	margin: auto;
 	display: none;
 	padding: 5%;
-	width: 50%;
-	height: 15%;
+	width: 30%;
+	height: 25%;
 	top:0; bottom: 0; left: 0; right: 0;
 	position: fixed;
 }

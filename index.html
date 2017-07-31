@@ -7,26 +7,38 @@
 			#main{
 				display: none;
 			}
+			#noscript{
+				display: none;
+			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="lib/pace/pace.min.js"></script>
 		<link rel="stylesheet" href="lib/pace/themes/blue/pace-theme-minimal.css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script>
-			loaderDef=["core/main.js"];
+			loaderInit=["core/main.js"];
 			loaderProps={
 				eventos:{
 					onload: function(a){
-						console.log("Cargado: "+a);
+						$("#main").show(200);
 					}
 				}
 			}
 		</script>
-		<script src="lib/jsloader/loader.js" async defer></script>
+		<script src="lib/jsloader/loader.js" async></script>
+		<noscript>
+			<style>
+				#noscript{
+					display: block;
+				}
+			</style>
 	</head>
 	<body>
 		<div id="main">
 			<h2>Probando</h2>
+		</div>
+		<div id="noscript">
+			<h2>Si no activas Javascript en la página, esta no funcionará!</h2>
 		</div>
 	</body>
 </html>

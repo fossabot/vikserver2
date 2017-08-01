@@ -11,11 +11,10 @@ echo "Creando directorio para FTP"
 mkdir .travis/ftp
 echo "Montando FTP con fuse"
 sudo curlftpfs -o allow_other,user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital .travis/ftp
+echo "Moviendo elementos al FTP"
+mv -v lib/fontAwesome/fonts .travis/ftp/public_html
 echo "Copiando los archivos al FTP"
-#rsync --info=progress2 * -v -r .travis/ftp/public_html
 cp -rv * .travis/ftp/public_html
-echo "Creando nuevos enlaces simbólicos"
-ln -sv fonts/fontAwesome/fonts .travis/ftp/public_html/fonts
 echo "Desmontando FTP"
 sudo umount .travis/ftp
 echo "Copia terminada"

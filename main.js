@@ -14,7 +14,7 @@ app.get(propiedades.path, (req, res)=>{
 	if(req._parsedUrl.path.match(/(.*\.php)/)){
 		res.status(403).send("<h2>Lo sentimos, pero no podemos devolver ese tipo de archivos</h2>");
 	}else{
-		res.sendFile(propiedades.root+req.url);
+		res.sendFile(propiedades.root+req._parsedUrl.pathname);
 	}
 });
 app.listen(propiedades.puerto, ()=>{

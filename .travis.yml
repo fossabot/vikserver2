@@ -13,4 +13,4 @@ env:
 after_success: .travis/after_success.sh
 before_install:
  - sudo apt-get update -q
- - sudo apt-get install curlftpfs -y
+ - sudo apt-get install curlftpfs rsync -y

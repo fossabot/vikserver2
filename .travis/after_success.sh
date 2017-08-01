@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Eliminando módulos de Node"
-rm -rf node_modules package-lock.json
+rm -rf node_modules
 echo "Limpiando elementos inecesarios"
 rm -rf lib/fontAwesome/src lib/fontAwesome/scss lib/fontAwesome/less
 rm -rf lib/pace/docs lib/pace/templates
@@ -15,7 +15,7 @@ echo "Copiando los archivos al FTP"
 #rsync --info=progress2 * -v -r .travis/ftp/public_html
 cp -rv * .travis/ftp/public_html
 echo "Creando nuevos enlaces simbólicos"
-ln -sv fonts/fontAwesome/fonts .travis/FTP/fonts
+ln -sv fonts/fontAwesome/fonts .travis/ftp/public_html/fonts
 echo "Desmontando FTP"
 sudo umount .travis/ftp
 echo "Copia terminada"

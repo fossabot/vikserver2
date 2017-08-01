@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "Eliminando módulos de Node"
 rm -rf node_modules package-lock.json
+echo "Limpiando elementos inecesarios"
+rm -rf lib/fontAwesome/src
 echo "Creando directorio para FTP"
 mkdir .travis/ftp
 echo "Montando FTP con fuse"

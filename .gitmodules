@@ -10,3 +10,6 @@
 [submodule "lib/vex"]
 	path = lib/vex
 	url = https://github.com/HubSpot/vex.git
+[submodule "lib/socket.io"]
+	path = lib/socket.io
+	url = https://github.com/socketio/socket.io-client.git

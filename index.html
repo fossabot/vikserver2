@@ -13,12 +13,12 @@
 			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="lib/pace/pace.min.js"></script>
+		<script data-pace-options='{ "ajax": false }' src="lib/pace/pace.min.js"></script>
 		<link rel="stylesheet" href="lib/pace/themes/blue/pace-theme-minimal.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script>
-			loaderInit=["core/main.js", "bootstrap", "fontAwesome", "vex/dist/js/vex.combined.min.js", "vex/dist/css/vex-theme-plain.css", "vex/dist/css/vex.css"];
+			loaderInit=["core/main.js", "bootstrap", "fontAwesome", "vex"];
 			loaderProps={
 				eventos:{
 					onload: function(a){
@@ -34,7 +34,7 @@
 			<div class="container-fluid">
 				<div class="jumbotron">
 					<div class="index-jumbo-botones">
-						<button type="button" id="index-menu-btn" class="btn btn-md btn-info"><span class="fa fa-bars"></span></button>
+						<button type="button" id="index-menu-btn" class="btn btn-md btn-primary"><span class="fa fa-bars"></span></button>
 					</div>
 					<h3>Vikserver, tu almacén de links personal y privado<br><small id="motd"></small></h3>
 				</div>
@@ -45,8 +45,8 @@
 			</footer>
 		</div>
 		<div id="float-parent" style="display: none;">
-			<div id="index-menu">
-				<button type="button" class="btn btn-md btn-default" id="menu-iniciar_sesión"><span class="fa fa-sign-in"></span> Iniciar sesión</button>
+			<div id="index-menu" class="div-primary">
+				<button type="button" class="btn btn-md btn-primary" id="menu-iniciar_sesión"><span class="fa fa-sign-in"></span> Iniciar sesión</button>
 			</div>
 		</div>
 		<noscript>

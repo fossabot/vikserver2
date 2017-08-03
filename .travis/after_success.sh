@@ -6,6 +6,7 @@ rm -rf lib/fontAwesome/src lib/fontAwesome/scss lib/fontAwesome/less
 rm -rf lib/pace/docs lib/pace/templates
 rm -rf lib/typedjs/docs lib/typedjs/src
 rm -rf lib/vex/docs lib/vex/sass lib/vex/src lib/vex/test
+rm -rf lib/socket.io/docs lib/socket.io/lib lib/socket.io/support lib/socket.io/test
 echo "Limpiando enlaces simbólicos"
 unlink fonts
 echo "Creando directorio para FTP"

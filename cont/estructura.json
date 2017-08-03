@@ -1,0 +1,11 @@
+{
+	"db": [
+		{
+			"version": 1,
+			"estructura":{
+				"Usuarios":"++id,&Usuario",
+				"Tablas": "&Usuario,db"
+			}
+		}
+	]
+}

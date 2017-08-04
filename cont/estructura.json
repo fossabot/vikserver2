@@ -1,9 +1,9 @@
 {
 	"db": [
 		{
-			"version": 1,
+			"version": 0.1,
 			"estructura":{
-				"Usuarios":"++id,&Usuario",
+				"Usuarios":"++id,&Usuario,pgp",
 				"Tablas": "&Usuario,db"
 			}
 		}

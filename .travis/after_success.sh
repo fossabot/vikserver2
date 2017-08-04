@@ -7,6 +7,7 @@ rm -rf lib/pace/docs lib/pace/templates lib/pace/themes/green lib/pace/themes/or
 rm -rf lib/typedjs/docs lib/typedjs/src
 rm -rf lib/vex/docs lib/vex/sass lib/vex/src lib/vex/test
 rm -rf lib/socket.io/docs lib/socket.io/lib lib/socket.io/support lib/socket.io/test
+rm -rf lib/js-sha256/src lib/js-sha256/tests
 echo "Limpiando enlaces simbólicos"
 unlink fonts
 echo "Creando directorio para FTP"

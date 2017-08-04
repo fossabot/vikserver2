@@ -16,3 +16,6 @@
 [submodule "lib/js-sha256"]
 	path = lib/js-sha256
 	url = https://github.com/emn178/js-sha256.git
+[submodule "lib/openpgp"]
+	path = lib/openpgp
+	url = https://github.com/openpgpjs/openpgpjs.git

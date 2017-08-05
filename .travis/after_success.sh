@@ -19,7 +19,7 @@ sudo curlftpfs -o allow_other,user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.dig
 echo "Moviendo elementos al FTP"
 mv -v lib/fontAwesome/fonts .travis/ftp/public_html
 echo "Copiando los archivos al FTP"
-cp -rv * .travis/ftp/public_html
+cp -rvu * .travis/ftp/public_html
 echo "Desmontando FTP"
 sudo umount .travis/ftp
 echo "Copia terminada"

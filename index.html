@@ -15,10 +15,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script data-pace-options='{ "ajax": false }' src="lib/pace/pace.min.js"></script>
 		<link rel="stylesheet" href="lib/pace/themes/blue/pace-theme-minimal.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script>
-			loaderInit=["core/main.js", "bootstrap", "fontAwesome", "vex"];
+			loaderInit=["core/main.js", "fontAwesome", "vex", "materialize"];
 			loaderProps={
 				eventos:{
 					onload: function(a){
@@ -31,26 +30,24 @@
 	</head>
 	<body>
 		<div id="main">
-			<div class="container-fluid">
-				<div class="jumbotron">
-					<div class="index-jumbo-botones">
-						<button type="button" id="index-menu-btn" class="btn btn-md btn-primary"><span class="fa fa-bars"></span></button>
+			<div class="section div-primary z-depth-3">
+				<div class="container">
+					<div class="col s12 m12">
+						<h2 class="page-title center">Vikserver</h2>
+						<h5 class="light text-lighten-4 center" id="motd">Bienvenido!</h5>
 					</div>
-					<h3>Vikserver, tu almacén de links personal y privado<br><small id="motd"></small></h3>
 				</div>
 			</div>
 			<div id="visor" class="container"></div>
-			<footer>
-				<p>Esto es un proyecto de código abierto, puedes echarle un vistazo <a href="https://github.com/vikserver/vikserver2" target="_blank">aquí</a></p>
-			</footer>
-		</div>
-		<div id="float-parent" style="display: none;">
-			<div id="index-menu" class="div-primary">
-				<button type="button" class="btn btn-md btn-primary" id="menu-iniciar_sesión"><span class="fa fa-sign-in"></span> Iniciar sesión</button>
+			<div class="fixed-action-btn" id="index-menu">
+				<a class="btn-floating btn-large"><i class="material-icons">menu</i></a>
+				<ul id="menu-opciones">
+					
+				</ul>
 			</div>
 		</div>
 		<noscript>
-			<h2>Si no activas Javascript en la página, esta no funcionará!</h2>
+			<h2>Si no activas Javascript en la página no podemos hacer nada!</h2>
 		</noscript>
 	</body>
 </html>

@@ -13,14 +13,10 @@ rm lib/openpgp/*
 for i in $(ls lib/materialize |grep -v dist); do
 	rm -rf lib/materialize/$i
 done
-echo "Limpiando enlaces simbólicos"
-unlink fonts
 echo "Creando directorio para FTP"
 mkdir .travis/ftp
 echo "Montando FTP con fuse"
 sudo curlftpfs -o allow_other,user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital .travis/ftp
-echo "Moviendo elementos al FTP"
-mv -v lib/fontAwesome/fonts .travis/ftp/public_html
 echo "Copiando los archivos al FTP"
 cp -rvu * .travis/ftp/public_html
 echo "Desmontando FTP"

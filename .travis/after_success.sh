@@ -10,6 +10,9 @@ rm -rf lib/socket.io/docs lib/socket.io/lib lib/socket.io/support lib/socket.io/
 rm -rf lib/js-sha256/src lib/js-sha256/tests
 rm -rf lib/openpgp/src lib/openpgp/test
 rm lib/openpgp/*
+for i in $(ls lib/materialize |grep -v dist); do
+	rm -rf lib/materialize/$i
+done
 echo "Limpiando enlaces simbólicos"
 unlink fonts
 echo "Creando directorio para FTP"

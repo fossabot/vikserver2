@@ -19,7 +19,7 @@ sudo curlftpfs -o allow_other,user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.dig
 echo "Copiando los archivos al FTP"
 #cp -rvu * .travis/ftp/public_html
 mkdir /tmp/rsync
-rsync -rv --delete --temp-dir=/tmp/rsync * .travis/ftp/public_html
+rsync -rvc --delete --temp-dir=/tmp/rsync * .travis/ftp/public_html
 echo "Desmontando FTP"
 sudo umount .travis/ftp
 echo "Copia terminada"

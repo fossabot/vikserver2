@@ -3,7 +3,6 @@ echo "Eliminando módulos de Node"
 rm -rf node_modules
 echo "Limpiando elementos inecesarios"
 rm -rf lib/fontAwesome/src lib/fontAwesome/scss lib/fontAwesome/less
-rm -rf lib/pace/docs lib/pace/templates lib/pace/themes/green lib/pace/themes/orange lib/pace/themes/pink lib/pace/themes/purple lib/pace/themes/red lib/pace/themes/silver lib/pace/themes/white lib/pace/themes/yellow
 rm -rf lib/typedjs/docs lib/typedjs/src
 rm -rf lib/vex/docs lib/vex/sass lib/vex/src lib/vex/test
 rm -rf lib/socket.io/docs lib/socket.io/lib lib/socket.io/support lib/socket.io/test

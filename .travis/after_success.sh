@@ -19,6 +19,7 @@ echo "Montando FTP con fuse"
 sudo curlftpfs -o allow_other,user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital .travis/ftp
 echo "Copiando los archivos al FTP"
 #cp -rvu * .travis/ftp/public_html
+mkdir /tmp/rsync
 rsync -rv --delete --temp-data=/tmp/rsync * .travis/ftp/public_html
 echo "Desmontando FTP"
 sudo umount .travis/ftp

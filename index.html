@@ -11,6 +11,26 @@
 				text-align: center;
 				display: none;
 			}
+			.spin {
+				border: 5px solid #f3f3f3;
+				border-top: 5px solid #3498db;
+				border-radius: 50%;
+				width: 120px;
+				height: 120px;
+				animation: girar 2s linear infinite;
+			}
+			@keyframes girar {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+			#cargando{
+				margin: auto;
+				width: 50%;
+				text-align: center;
+			}
+			#cargando > .spin{
+				margin: auto;
+			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script data-pace-options='{ "ajax": false }' src="lib/pace/pace.min.js"></script>
@@ -21,6 +41,7 @@
 			loaderProps={
 				eventos:{
 					onload: function(a){
+						$("#cargando").hide(200);
 						$("#main").show(200);
 					}
 				}
@@ -47,6 +68,9 @@
 		<link rel="icon" type="image/png" href="lib/iconos/faviconx310x150.png" sizes="310x150" async>
 	</head>
 	<body>
+		<div id="cargando">
+			<h2>Cargando...</h2><div class="spin"></div>
+		</div>
 		<div id="main">
 			<div class="section div-primary z-depth-3">
 				<div class="container">

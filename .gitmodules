@@ -1,6 +1,3 @@
-[submodule "lib/pace"]
-	path = lib/pace
-	url = https://github.com/HubSpot/pace.git
 [submodule "lib/typedjs"]
 	path = lib/typedjs
 	url = https://github.com/mattboldt/typed.js.git

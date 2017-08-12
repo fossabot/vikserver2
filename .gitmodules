@@ -13,9 +13,6 @@
 [submodule "lib/openpgp"]
 	path = lib/openpgp
 	url = https://github.com/openpgpjs/openpgpjs.git
-[submodule "lib/materialize"]
-	path = lib/materialize
-	url = https://github.com/Dogfalo/materialize.git
 [submodule "lib/jsloader"]
 	path = lib/jsloader
 	url = https://github.com/mrvik/jsloader.git

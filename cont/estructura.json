@@ -9,6 +9,6 @@
 		}
 	],
 	"userdb":{
-		"links":[{"link": "https://github.com/vikserver/vikserver2", "descripción": "Tu primer enlace ;)"}]
+		"links":[{"link": "https://github.com/vikserver/vikserver2", "descripción": "Tu primer enlace ;)", "uid": "000000"}]
 	}
 }

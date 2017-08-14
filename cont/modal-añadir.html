@@ -4,18 +4,18 @@
 		<form>
 			<div class="input-field">
 				<i class="material-icons prefix">short_text</i>
-				<input type="text" id="añadir-descripción">
+				<input type="text" data-añadir="desc" id="añadir-descripción" required>
 				<label for="añadir-descripción">Descripción del enlace</label>
 			</div>
 			<div class="input-field">
 				<i class="material-icons prefix">link</i>
-				<input type="url" id="añadir-link">
+				<input type="url" data-añadir="enlace" id="añadir-link" required>
 				<label for="añadir-link">Enlace</label>
 			</div>
 		</form>
 	</div>
 	<div class="modal-footer">
-		<a href="#!" class="modal-action modal-close waves-effect waves-effect-red btn-flat"><i class="material-icons">cancel</i> Cancelar</a>
-		<a href="#!" class="modal-action modal-close waves-effect waves-effect-green btn-flat"><i class="material-icons">save</i> Guardar</a>
+		<a href="#!" id="añadir-cancelar" class="modal-action modal-close waves-effect waves-effect-red btn-flat"><i class="material-icons">cancel</i> Cancelar</a>
+		<a href="#!" id="añadir-aceptar" class="modal-action modal-close waves-effect waves-effect-green btn-flat"><i class="material-icons">save</i> Guardar</a>
 	</div>
 </div>

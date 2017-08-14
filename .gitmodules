@@ -16,6 +16,3 @@
 [submodule "lib/jsloader"]
 	path = lib/jsloader
 	url = https://github.com/mrvik/jsloader.git
-[submodule "lib/objectWatch"]
-	path = lib/objectWatch
-	url = https://gist.github.com/384583.git

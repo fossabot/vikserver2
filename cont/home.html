@@ -2,7 +2,7 @@
 	<ul class="collapsible popout" data-collapsible="accordion">
 		{{#each this}}
 			<li>
-				<div class="nosel collapsible-header">{{descripción}}</div>
+				<div data-desc class="nosel collapsible-header">{{descripción}}</div>
 				<div class="collapsible-body">
 					<a href="{{link}}" target="_blanc" rel="noopener">{{link}}</a>
 					<div class="fixed-action-btn toolbar">
@@ -12,6 +12,10 @@
 							<li class="waves-effect waves-effect-light links-editar"><a href="#"><i class="material-icons">mode_edit</i> Editar</a></li>
 						</ul>
 					</div>
+				</div>
+				<div class="acciones" style="display: none !important;">
+					<a href="#" class="btn-flat acciones-ok">Guardar</a>
+					<a href="#" class="btn-flat acciones-cancelar">Descartar</a>
 				</div>
 			</li>
 		{{/each}}

@@ -43,6 +43,7 @@ footer{
 .btn{
 	background-color: #546e7a !important;
 	vertical-align: center !important;
+	color: #ffffff;
 }
 .nosel{
 	user-select: none;

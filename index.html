@@ -73,17 +73,22 @@
 			<h2>Cargando...</h2><div class="spin"></div>
 		</div>
 		<div id="main">
-		<div class="fixed-action-btn" id="index-menu">
-			<a class="btn-floating btn-large"><i class="material-icons">menu</i></a>
-			<ul id="menu-opciones"></ul>
-		</div>
-			<div class="section div-primary z-depth-3">
-				<div class="container">
-					<div class="col s12 m12">
-						<h2 class="page-title center">Vikserver</h2>
-						<h5 class="light text-lighten-4 center" id="motd">Bienvenido!</h5>
+			<nav class="color-primario">
+				<div class="nav-wrapper">
+					<div class="col s12">
+						<a href="#!" class="brand-logo center">Vikserver</a>
+						<ul class="left">
+							<li><span id="motd">Bienvenido!</span></li>
+						</ul>
+						<ul class="right">
+							<li style="display: none;"><a href="#" data-sync='indicador' class="btn-flat"><i class="material-icons">stop</i></a></li>
+						</ul>
 					</div>
 				</div>
+			</nav>
+			<div class="fixed-action-btn" id="index-menu">
+				<a class="btn-floating btn-large"><i class="material-icons">menu</i></a>
+				<ul id="menu-opciones"></ul>
 			</div>
 			<div id="visor" class="container"></div>
 		</div>

@@ -2,15 +2,7 @@
 html{
 	font-family: "Roboto", sans-serif !important;
 }
-footer{
-	position: absolute;
-	bottom: 0;
-}
 
-/* Elementos por ID */
-#visor{
-	display: none;
-}
 
 /* Elementos por clase */
 .centro-ventana{
@@ -26,19 +18,9 @@ footer{
 .btn-floating{
 	user-select: none;
 }
-.div-primary{
-	background-color: #0d46a0;
+.color-primario{
+	background-color: #0d46a0 !important;
 	color: white !important;
-	font-weight: 300;
-	font-family: "Roboto", sans-serif;
-}
-#visor{
-	padding-top: 2%;
-}
-@media screen and (max-width: 1000px){
-	footer{
-		display: none;
-	}
 }
 .btn{
 	background-color: #546e7a !important;
@@ -47,4 +29,17 @@ footer{
 }
 .nosel{
 	user-select: none;
+}
+
+/* Elementos por ID */
+#visor{
+	display: none;
+}
+#visor{
+	padding-top: 2%;
+}
+
+/* Elementos por atributos */
+[data-sync='indicador']{
+	color: white !important;
 }

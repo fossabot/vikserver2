@@ -24,13 +24,13 @@ This guide is for projects from the vikserver organization
 
 ## Dependencies rules
 - Dependencies can be included by
-  - Pull Requests on [mrvik/jsloader][ghJsloader] adding a new definition (a CDN URL)
-  - Adding a submodule on [vikserver/vikserver2][ghVikserver2]
+  - Pull Requests on [mrvik/jsloader](https://github.com/mrvik/jsloader) adding a new definition (a CDN URL)
+  - Adding a submodule on [vikserver/vikserver2](https://github.com/vikserver/vikserver-backend)
   - Fonts can be put on /fonts
   - Modifying package*.json
 - Dependencies must be loaded on the same way
   - JS and CSS files
-    - Throught `load()` function from [mrvik/jsloader][ghJsloader]
+    - Throught `load()` function from [mrvik/jsloader](https://github.com/mrvik/jsloader)
     - Fonts
       - Thought style sheets
     - Other files (like HTML)
@@ -42,7 +42,7 @@ This guide is for projects from the vikserver organization
 
 ## Criptogrphy and Communications rules
 When socketctl.js is modified, the way the frontend communicates with the backend changes
-Many of the modifications on crypto.js requires a modification on the [backend][ghVikserver-backend]
+Many of the modifications on crypto.js requires a modification on the [backend](https://github.com/vikserver/vikserver-backend)
 So it's fundamental to follow this rules in order to keep the speed and security
 - Criptogrphy
   - The framework used for encription is openpgp and cannot be replaced
@@ -58,7 +58,3 @@ So it's fundamental to follow this rules in order to keep the speed and security
 ## User communication rules
 - When communication with the user is necessary, there are a few recommendations that will help. There are clear instructions about this at [google's guidelines about material design](https://material.io/guidelines/style/writing.html#writing-language)
 - You can use icons from material icons library (loaded in the project) to give the UI a fresh style. Keep it in mind
-
-[ghVikserver2][https://github.com/vikserver/vikserver2]
-[ghJsloader][https://github.com/mrvik/jsloader]
-[ghVikserver-backend][https://github.com/vikserver/vikserver-backend]

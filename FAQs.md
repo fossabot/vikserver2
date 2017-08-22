@@ -29,6 +29,6 @@ Reload the page and try again. If problem persists, press F12 (open DevTools) an
 #### When I write the username, the password field is enabled, but the `login` or `register` button doesn't appear
 This is a problem with login.js or crypto.js Try reloading the page and if the problem persists, please, create an issue and upload a screenshot of the DevTools (open it with F12 key)
 #### When I try to login, my account won't open and shows an alert
-This alert is saying that the MySQL sever doesn't have a database that belongs to your user. This is a known issue. #3 issue on GitHub. If it's happening to you, please comment on the issue.
+This alert is saying that the MySQL sever doesn't have a database that belongs to your user. This is a known issue. [#3](https://github.com/vikserver/vikserver2/issues/3) issue on GitHub. If it's happening to you, please comment on the issue.
 #### When I'm inside of my account, the link cards doesn't mutate on click
 This is an issue from Materialize or home.js Try reloading, if problem persists create a issue and upload a screenshot from DevTools.

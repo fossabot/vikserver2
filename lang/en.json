@@ -15,7 +15,9 @@
     "modal_add":{
         "title": "Add a link",
         "link_desc": "Link description",
-        "link_url": "Link"
+        "link_url": "Link",
+        "save": "Save",
+        "cancel": "Cancel"
     },
     "alert":{
         "link_invalid": "Link isn't valid. Remember link must begin with http or https and continue with ://",

@@ -15,7 +15,9 @@
     "modal_add":{
         "title": "Añadir un enlace",
         "link_desc": "Descripción del enlace",
-        "link_url": "Enlace"
+        "link_url": "Enlace",
+        "save": "Guardar",
+        "cancel": "Cancelar"
     },
     "alert":{
         "link_invalid": "El enlace no es válido. Recuerda que debe empezar por http o https y continuar con ://",

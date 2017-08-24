@@ -23,12 +23,32 @@
         "cancel": "Cancel"
     },
     "alert":{
+        "link_404": "Couldn't find the link you say :/",
         "link_invalid": "Link isn't valid. Remember link must begin with http or https and continue with ://",
+        "desc_invalid": "Description seems invalid *.*",
         "link_saved": "Link saved [OK]",
         "link_modified": "Link modified [OK]",
         "link_deleted": "Link deleted [OK]",
+        "link_will_delete": "Will delete link to ",
+        "sure_to_continue": " Do you want to continue?",
+        "wont_change": "No changes will be made",
         "welcome": "Welcome",
         "under_devel": "This section is under development, some things may not work",
         "disconnect": "Disconnected"
+    },
+    "sync":{
+        "sync_running": "Sync was running"
+    },
+    "login":{
+        "nopass": "You must enter a password",
+        "pass_nok": "Password seems incorrect :(",
+        "user_nok": "Server doesn't remember you this way :/",
+        "ok": "Login OK!",
+        "register_ok": "Welcome, register was OK. Please, don't forget the password!!!"
+    },
+    "errors":{
+        "login_page": "Login page couldn't be reached",
+        "login_What": "A exception ocurred and couldn't login... Please try again",
+        "register": "Your account couldn't be registered. Sorry"
     }
 }

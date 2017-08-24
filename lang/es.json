@@ -23,12 +23,32 @@
         "cancel": "Cancelar"
     },
     "alert":{
+        "link_404": "No hemos podido encontrar ese link que dices :/",
         "link_invalid": "El enlace no es válido. Recuerda que debe empezar por http o https y continuar con ://",
+        "desc_invalid": "La descripción parece inválida *.*",
         "link_saved": "Link guardado [OK]",
         "link_modified": "Link modificado [OK]",
         "link_deleted": "Link eliminado [OK]",
+        "link_will_delete": "Vas a eliminar el link a ",
+        "sure_to_continue": " ¿Seguro que quieres continuar?",
+        "wont_change": "No se hará ningún cambio",
         "welcome": "Bienvenido",
         "under_devel": "Esta sección está desarrollándose, puede que algunas cosas no funcionen",
         "disconnect": "Desconectado"
+    },
+    "sync":{
+        "sync_running": "Ya se está sincronizando"        
+    },
+    "login":{
+        "nopass": "Seré yo, pero no hay ninguna contraseña :)",
+        "pass_nok": "Según parece esta es una contraseña inválida :(",
+        "user_nok": "Parece que no te recuerdan así en el servidor :/",
+        "ok": "Estás dentro!",
+        "register_ok": "Bienvenido! Ya hemos terminado de registrarte. No te olvides de la contraseña!!!"
+    },
+    "errors":{
+        "login_page": "No hemos podido conseguir la página de login",
+        "login_What": "Ha surgido un problema y no podemos iniciar sesión... Vuelve a intentarlo",
+        "register": "No hemos podido registrar tu cuenta, perdona las molestias"
     }
 }

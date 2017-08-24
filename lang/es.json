@@ -1,5 +1,6 @@
 {
     "title": "Vikserver",
+    "motd": ["", "Tu trastero de links más amigable", "Tu trastero de links más rápido", "Tu trastero de links más seguro"],
     "login":{
         "username": "Usuario",
         "password": "Contraseña",

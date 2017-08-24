@@ -40,6 +40,9 @@ html{
 #visor{
 	padding-top: 2%;
 }
+#boton-idiomas{
+    color: #ffffff !important;
+}
 
 /* Elementos por atributos */
 [data-sync='indicador']{

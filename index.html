@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Vikserver</title>
@@ -33,7 +33,8 @@
 			}
 		</style>
 		<script>
-			if(location.protocol=="http:") location.protocol="https:";
+            let secure=true;
+			if(secure&&location.protocol=="http:") location.protocol="https:";
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -76,6 +77,8 @@
 			<nav class="color-primario">
 				<div class="nav-wrapper">
 					<div class="col s12">
+                        <ul class="left">
+                            <li><a href="#" class="btn-flat" id="boton-idiomas"><i class="material-icons">language</i></a></li>
 						<a href="#!" class="brand-logo center">Vikserver</a>
 						<ul class="right">
 							<li style="display: none;"><a href="#" data-sync='indicador' class="btn-flat"><i data-sync='icono' class="material-icons">stop</i></a></li>

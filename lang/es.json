@@ -50,5 +50,11 @@
         "login_page": "No hemos podido conseguir la página de login",
         "login_What": "Ha surgido un problema y no podemos iniciar sesión... Vuelve a intentarlo",
         "register": "No hemos podido registrar tu cuenta, perdona las molestias"
+    },
+    "crypto":{
+        "key_nok": "Tu clave no se puede descifrar con esa contraseña",
+        "creds_nok": "Credenciales incorrectas",
+        "pgp_rare": "No hemos podido desencriptar la clave que acabamos de crear, no te hemos registrado en ningún sitio, así que puedes volver a intentarlo. Si el problema persiste crea una incidencia en vikserver/vikserver2 en GitHub",
+        "nodb": "Parece que no tienes ninguna base de datos asociada a la cuenta"
     }
 }

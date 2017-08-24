@@ -50,5 +50,11 @@
         "login_page": "Login page couldn't be reached",
         "login_What": "A exception ocurred and couldn't login... Please try again",
         "register": "Your account couldn't be registered. Sorry"
+    },
+    "crypto":{
+        "key_nok": "Your key couldn't be unciphered with your passphrase",
+        "creds_nok": "Credentials are incorrect",
+        "pgp_rare": "Couldn't decrypt your new PGP key. Please, report it on github under vikserver/vikserver2. You aren't registered anywhere, so try again",
+        "nodb": "Your account seems to not have a db associated"
     }
 }

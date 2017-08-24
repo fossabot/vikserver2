@@ -78,11 +78,8 @@
 				<div class="nav-wrapper">
 					<div class="col s12">
 						<a href="#!" class="brand-logo center">Vikserver</a>
-						<ul class="left">
-							<li><span id="motd">Bienvenido!</span></li>
-						</ul>
 						<ul class="right">
-							<li style="display: none;"><a href="#" data-sync='indicador' class="btn-flat"><i class="material-icons">stop</i></a></li>
+							<li style="display: none;"><a href="#" data-sync='indicador' class="btn-flat"><i data-sync='icono' class="material-icons">stop</i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -91,7 +88,9 @@
 				<a class="btn-floating btn-large"><i class="material-icons">menu</i></a>
 				<ul id="menu-opciones"></ul>
 			</div>
-			<div id="visor" class="container"></div>
+			<div id="visor" class="container">
+				<h6 id="motd" class="center">Bienvenido!</h6>
+			</div>
 		</div>
 		<div id="contenedor-modales"></div>
 		<noscript>

@@ -56,5 +56,9 @@
         "creds_nok": "Credenciales incorrectas",
         "pgp_rare": "No hemos podido desencriptar la clave que acabamos de crear, no te hemos registrado en ningún sitio, así que puedes volver a intentarlo. Si el problema persiste crea una incidencia en vikserver/vikserver2 en GitHub",
         "nodb": "Parece que no tienes ninguna base de datos asociada a la cuenta"
+    },
+    "direct":{
+        "pgp_404": "No hemos podido encontrar la base de datos asociada a tu cuenta",
+        "pgp_sign_check_nok": "La clave con la que se ha firmado la base de datos no es la tuya :("
     }
 }

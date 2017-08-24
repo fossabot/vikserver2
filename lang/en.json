@@ -56,5 +56,9 @@
         "creds_nok": "Credentials are incorrect",
         "pgp_rare": "Couldn't decrypt your new PGP key. Please, report it on github under vikserver/vikserver2. You aren't registered anywhere, so try again",
         "nodb": "Your account seems to not have a db associated"
+    },
+    "direct":{
+        "pgp_404": "Coundn't find the key associated to your account",
+        "pgp_sign_check_nok": "Key that signed the db is not yours :("
     }
 }

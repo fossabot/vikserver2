@@ -30,11 +30,13 @@ html{
 .nosel{
 	user-select: none;
 }
+.girar{
+	animation-name: girar;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
 
 /* Elementos por ID */
-#visor{
-	display: none;
-}
 #visor{
 	padding-top: 2%;
 }

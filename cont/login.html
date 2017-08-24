@@ -6,15 +6,15 @@
 				<div class="input-field">
 					<i class="material-icons prefix">account_circle</i>
 					<input type="text" id="login-usuario" class="form-control">
-					<label for="login-usuario">Usuario</label>
+					<label for="login-usuario">{{username}}</label>
 				</div>
 				<div class="input-field">
 					<i class="material-icons prefix">vpn_key</i>
 					<input type="password" id="login-contraseña" class="form-control" disabled>
-					<label for="login-contraseña">Contraseña</label>
+					<label for="login-contraseña">{{password}}</label>
 				</div>
-				<button data-login type="button" id="login-registro" disabled style="display: none;" class="waves-effect waves-light btn"><i class="material-icons">add</i> Registrarse</button>
-				<button data-login type="button" id="login-login" disabled style="display: none;" class="waves-effect waves-light btn"><i class="material-icons">done</i> Iniciar sesión</button>
+				<button data-login type="button" id="login-registro" disabled style="display: none;" class="waves-effect waves-light btn"><i class="material-icons">add</i> {{register}}</button>
+				<button data-login type="button" id="login-login" disabled style="display: none;" class="waves-effect waves-light btn"><i class="material-icons">done</i> {{login}}</button>
 			</div>
 			<div class="col s2"></div>
 		</div>

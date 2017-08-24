@@ -11,7 +11,9 @@
         "ok": "Ok",
         "save": "Save",
         "discard": "Discard",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit"
     },
     "modal_add":{
         "title": "Add a link",

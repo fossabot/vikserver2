@@ -11,7 +11,9 @@
         "ok": "Ok",
         "save": "Guardar",
         "discard": "Descartar",
-        "cancel": "Cancelar"
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar"
     },
     "modal_add":{
         "title": "Añadir un enlace",

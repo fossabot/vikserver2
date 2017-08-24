@@ -1,0 +1,29 @@
+{
+    "title": "Vikserver",
+    "login":{
+        "username": "Username",
+        "password": "Password",
+        "login": "Login",
+        "register": "Register"
+    },
+    "btn":{
+        "ok": "Ok",
+        "save": "Save",
+        "discard": "Discard",
+        "cancel": "Cancel"
+    },
+    "modal_add":{
+        "title": "Add a link",
+        "link_desc": "Link description",
+        "link_url": "Link"
+    },
+    "alert":{
+        "link_invalid": "Link isn't valid. Remember link must begin with http or https and continue with ://",
+        "link_saved": "Link saved [OK]",
+        "link_modified": "Link modified [OK]",
+        "link_deleted": "Link deleted [OK]",
+        "welcome": "Welcome",
+        "under_devel": "This section is under development, some things may not work",
+        "disconnect": "Disconnected"
+    }
+}

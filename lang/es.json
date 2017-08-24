@@ -1,0 +1,29 @@
+{
+    "title": "Vikserver",
+    "login":{
+        "username": "Usuario",
+        "password": "Contraseña",
+        "login": "Iniciar sesión",
+        "register": "Registrarse"
+    },
+    "btn":{
+        "ok": "Ok",
+        "save": "Guardar",
+        "discard": "Descartar",
+        "cancel": "Cancelar"
+    },
+    "modal_add":{
+        "title": "Añadir un enlace",
+        "link_desc": "Descripción del enlace",
+        "link_url": "Enlace"
+    },
+    "alert":{
+        "link_invalid": "El enlace no es válido. Recuerda que debe empezar por http o https y continuar con ://",
+        "link_saved": "Link guardado [OK]",
+        "link_modified": "Link modificado [OK]",
+        "link_deleted": "Link eliminado [OK]",
+        "welcome": "Bienvenido",
+        "under_devel": "Esta sección está desarrollándose, puede que algunas cosas no funcionen",
+        "disconnect": "Desconectado"
+    }
+}

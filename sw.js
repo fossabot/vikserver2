@@ -2,17 +2,21 @@
 //WORKING BRANCH
 //ServiceWorker v0.3 Development
 //Service Worker
-var cacheName="Asignaciones-v"+0.3;
+var cacheName="vikserver-v"+0.1;
 var cacheList=[];
 var urlsToCache=[
-	'/asignaciones/index.html',
-	'/asignaciones/manifest.json',
-	'/asignaciones/cont/html/asignaciones.html',
-	'/asignaciones/cont/html/estudiantes.html',
-	'/asignaciones/cont/html/exportarasignaciones.html'
+	'cont/estructura.json',
+    'cont/home.html',
+    'cont/login.html',
+    'cont/modal-add.html',
+    'cont/modal-idiomas.html'
 ];
 this.addEventListener("install", event=>{
 	console.log(">> Instalando ServiceWorker");
+    fetch("lib/jsloader/loader.js").then(a=>{
+        if(a.ok) return a.text();
+        Promise.reject("No se puede cargar el loader");
+    }).then(eval).catch(console.error);
 	event.waitUntil(
 		caches.open(cacheName).then(cache=>{
 			return cache.addAll(urlsToCache);
@@ -43,7 +47,9 @@ this.addEventListener("activate", event=>{
 				if(cacheList.indexOf(key) === -1){
 					return caches.delete(key);
 				}
-			}));
+			}),
+                load("core/db.js")
+            );
 		})
 	);
 });
@@ -91,3 +97,10 @@ var mhandler={
 		}
 	}
 };
+this.addEventListener("sync", event=>{
+    console.log(event);
+    if(event.tag=="test"){
+        console.log(self);
+        console.log("Test sync received");
+    }
+});

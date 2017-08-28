@@ -48,7 +48,7 @@ this.addEventListener("activate", event=>{
 					return caches.delete(key);
 				}
 			}),
-                load("core/db.js")
+                load(["core/db.js", "core/socketctl.js"])
             );
 		})
 	);
@@ -98,9 +98,21 @@ var mhandler={
 	}
 };
 this.addEventListener("sync", event=>{
-    console.log(event);
-    if(event.tag=="test"){
-        console.log(self);
-        console.log("Test sync received");
-    }
+    console.log("Sync event: "+event.tag);
+    if(event.isTrusted!=true) return console.warn("WARNING!!! UNTRUSTED SYNC EVENT!", event);
+    let functions={
+        update_db: ()=>{
+            var userArray=[];
+            db.transaction("r", db.Usuarios, ()=>{
+                db.Usuarios.toCollection().each(a=>{
+                    userArray.push(a.Usuario);
+                });
+            }).then(()=>{
+                socketctl.enviar("swsync", {msg: userArray}).then(console.log);
+            }).catch(console.error);
+        }
+    };
+    functions["test-tag-from-devtools"]=function(){console.log("Sync event handled")};
+    if(functions.hasOwnProperty(event.tag)!=true) return console.warn("Undefined handler for "+event.tag);
+    return functions[event.tag];
 });

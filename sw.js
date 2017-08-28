@@ -9,19 +9,25 @@ var urlsToCache=[
     'cont/home.html',
     'cont/login.html',
     'cont/modal-add.html',
-    'cont/modal-idiomas.html'
+    'cont/modal-idiomas.html',
+	'lang/es.json',
+	'lang/en.json'
 ];
 this.addEventListener("install", event=>{
 	console.log(">> Instalando ServiceWorker");
-    fetch("lib/jsloader/loader.js").then(a=>{
-        if(a.ok) return a.text();
-        Promise.reject("No se puede cargar el loader");
-    }).then(eval).catch(console.error);
-	event.waitUntil(
+	event.waitUntil(Promise.all([
 		caches.open(cacheName).then(cache=>{
 			return cache.addAll(urlsToCache);
+		}),
+		fetch("lib/jsloader/loader.js").then(a=>{
+			if(a.ok) return a.text();
+			Promise.reject("No se puede cargar el loader");
+		}).then(a=>{
+			let b=new Function(a);
+			b();
+			return load("core/db.js");
 		})
-	);
+	]));
 });
 ///////////////////////////////////
 this.addEventListener("fetch", event=>{
@@ -47,9 +53,7 @@ this.addEventListener("activate", event=>{
 				if(cacheList.indexOf(key) === -1){
 					return caches.delete(key);
 				}
-			}),
-                load(["core/db.js", "core/socketctl.js"])
-            );
+			}));
 		})
 	);
 });
@@ -101,18 +105,23 @@ this.addEventListener("sync", event=>{
     console.log("Sync event: "+event.tag);
     if(event.isTrusted!=true) return console.warn("WARNING!!! UNTRUSTED SYNC EVENT!", event);
     let functions={
-        update_db: ()=>{
-            var userArray=[];
-            db.transaction("r", db.Usuarios, ()=>{
-                db.Usuarios.toCollection().each(a=>{
-                    userArray.push(a.Usuario);
-                });
-            }).then(()=>{
-                socketctl.enviar("swsync", {msg: userArray}).then(console.log);
-            }).catch(console.error);
+        update_db: function (){
+			if(typeof dbProgress=="undefined") throw new Error("DB not loaded");
+			return dbProgress.then(()=>{
+				console.log("Updating DB");
+				var userArray=[];
+				return db.transaction("r", db.Usuarios, ()=>{
+					db.Usuarios.toCollection().each(a=>{
+						userArray.push(a.Usuario);
+					});
+				}).then(()=>{
+					console.log(userArray);
+				}).catch(console.error);
+			});
         }
     };
+	console.log(functions);
     functions["test-tag-from-devtools"]=function(){console.log("Sync event handled")};
     if(functions.hasOwnProperty(event.tag)!=true) return console.warn("Undefined handler for "+event.tag);
-    return functions[event.tag];
+    return functions[event.tag]();
 });

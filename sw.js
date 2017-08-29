@@ -36,6 +36,7 @@ this.addEventListener("fetch", event=>{
 			return response || fetch(event.request).then(response=>{
 				return caches.open(cacheName).then(cache=>{
 					if(event.request.url.match(/(http([s]|):\/\/)/g)){
+						if(event.request.url.match("socket.io")) return response;
 						cache.put(event.request, response.clone());
 					}
 					return response;

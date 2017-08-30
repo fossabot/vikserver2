@@ -49,7 +49,8 @@
     "errors":{
         "login_page": "No hemos podido conseguir la página de login",
         "login_What": "Ha surgido un problema y no podemos iniciar sesión... Vuelve a intentarlo",
-        "register": "No hemos podido registrar tu cuenta, perdona las molestias"
+        "register": "No hemos podido registrar tu cuenta, perdona las molestias",
+		"offline": "No podemos enviar el mensaje al servidor sin conexión"
     },
     "crypto":{
         "key_nok": "Tu clave no se puede descifrar con esa contraseña",

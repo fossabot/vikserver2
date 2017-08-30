@@ -49,7 +49,8 @@
     "errors":{
         "login_page": "Login page couldn't be reached",
         "login_What": "A exception ocurred and couldn't login... Please try again",
-        "register": "Your account couldn't be registered. Sorry"
+        "register": "Your account couldn't be registered. Sorry",
+		"offline": "You're offline :'("
     },
     "crypto":{
         "key_nok": "Your key couldn't be unciphered with your passphrase",

@@ -1,6 +1,10 @@
 {
     "title": "Vikserver",
     "motd": ["", "Tu trastero de links más amigable", "Tu trastero de links más rápido", "Tu trastero de links más seguro"],
+	"index":{
+		"settings": "Ajustes",
+		"language": "Idiomas"
+	},
     "loginForm":{
         "username": "Usuario",
         "password": "Contraseña",

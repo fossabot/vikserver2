@@ -1,6 +1,10 @@
 {
     "title": "Vikserver",
     "motd": ["", "Your link vault, more friendly", "Your link vault, faster", "Your link vault, the safest"],
+	"index":{
+		"settings": "Settings",
+		"language": "Languages"
+	},
     "loginForm":{
         "username": "Username",
         "password": "Password",

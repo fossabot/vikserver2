@@ -35,13 +35,13 @@ html{
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
+.blanco{
+	color: #ffffff !important;
+}
 
 /* Elementos por ID */
 #visor{
 	padding-top: 2%;
-}
-#boton-idiomas{
-    color: #ffffff !important;
 }
 
 /* Elementos por atributos */

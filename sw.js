@@ -59,56 +59,58 @@ this.addEventListener("activate", event=>{
 	);
 });
 /////////////////////////////////
+this.addEventListener("push", event=>{
+	console.log(event);
+	console.log(event.data.text());
+});
+/////////////////////////////////
 this.addEventListener("message", event=>{
 	var msg=event.data;
 	console.log(msg);
-	mhandler.tipo[msg.tipo](msg.contenido).then(a=>{
-		event.ports[0].postMessage(a);
-	}).catch(e=>{
-		console.error(e);
-	});
+	return mhandler(msg).then(a=>event.ports[0].postMessage(a));
 });
-var mhandler={
-	tipo:{
-		importante: function(a){
-			return new Promise(function(aceptar, rechazar){
-				mhandler.ordenes[a.orden](a.datos).then(b=>{
-					aceptar(b);
-				}).catch(e=>{
-					rechazar(e);
-				});
+async function mhandler(a){
+	async function cache(b){
+		let cache=await caches.open(cacheName);
+		if(b.tipo=="put"){
+			let req=new Request(b.datos);
+			let response=await fetch(req);
+			return cache.put(req, response);
+		}else if(b.tipo=="delete"){
+			if(b.datos!=undefined) return cache.delete(b.datos);
+			let keys=await caches.keys();
+			let rtn=[];
+			keys.forEach(a=>{
+				rtn.push(caches.delete(a));
 			});
-		}
-	},
-	ordenes:{
-		recargar: function(a){
-			return new Promise(function(aceptar, rechazar){
-				return caches.open(cacheName).then(cache=>{
-					cache.delete(a).then(()=>{
-						cache.add(a).then(()=>{
-							console.log("La cache ha sido modificada correctamente");
-							aceptar({tipo: "respuesta", contenido: {datos: "ok"}});
-						});
-					});
-				});
-			});
-		},
-		eliminarcache: function(a){
-			return caches.keys().then(list=>{
-				return Promise.all(list.map(key=>{
-					return caches.delete(key);
-				}));
-			});
+			return Promise.all(rtn);
 		}
 	}
-};
+	async function db(b){
+		switch(b.tipo){
+			case "open":
+				if(self.db.isOpen()) return true;
+				return self.db.open();
+			case "close":
+				return self.db.close();
+		}
+	}
+	switch(a.tipo){
+		case "cache":
+			return await cache(a.datos);
+		case "db":
+			return await db(a.datos);
+		default:
+			return "Unhandled!!";
+	}
+}
 this.addEventListener("sync", event=>{
     console.log("Sync event: "+event.tag);
     if(event.isTrusted!=true) return console.warn("WARNING!!! UNTRUSTED SYNC EVENT!", event);
     let functions={
         update_db: function (){
 			if(typeof dbProgress=="undefined") throw new Error("DB not loaded");
-			return dbProgress.then(()=>{
+			return dbProgress.then(db.open()).then(()=>{
 				console.log("Updating DB");
 				var userArray=[];
 				return db.transaction("r", db.Usuarios, ()=>{

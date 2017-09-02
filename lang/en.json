@@ -17,8 +17,24 @@
         "discard": "Discard",
         "cancel": "Cancel",
         "delete": "Delete",
-        "edit": "Edit"
+        "edit": "Edit",
+		"close": "Close"
     },
+	"settings":{
+		"settings": "Settings",
+		"db_settings": "Local database",
+		"db_text": "When the app is throwing many errors, renew the database may be the best option",
+		"db_delete": "Reset local database",
+		"db_deleted": "Local database has been reinitialized",
+		"cache_settings": "App cache",
+		"cache_text": "The app saves a little memory, so you are able to access it without internet connection. This memory refreshes automatically, but you can do it now by deleting the cache",
+		"cache_reset": "Reset application cache",
+		"cache_reset_ok": "Cache has been reset",
+		"delete_settings": "Application data",
+		"delete_text": "You can delete all the data from the app just pressing the below button. <br> Important! Some of your data is saved on the server. You can delete it at <mark>Account settings</mark>",
+		"delete_data": "Delete app data",
+		"delete_ok": "Local data deleted"
+	},
     "modal_add":{
         "title": "Add a link",
         "link_desc": "Link description",

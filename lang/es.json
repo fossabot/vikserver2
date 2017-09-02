@@ -17,8 +17,24 @@
         "discard": "Descartar",
         "cancel": "Cancelar",
         "delete": "Eliminar",
-        "edit": "Editar"
+        "edit": "Editar",
+		"close": "Cerrar"
     },
+	"settings":{
+		"settings": "Ajustes",
+		"db_settings": "Base de datos local",
+		"db_text": "Si la página te está dando problemas, puedes probar a reinicializar la base de datos",
+		"db_delete": "Reinicializar base de datos local",
+		"db_deleted": "La base de datos local se ha reiniciado",
+		"cache_settings": "Caché de la aplicación",
+		"cache_text": "La app guarda una pequeña memoria para que puedas acceder sin conexión. Esta memoria se refresca automáticamente, pero puedes hacerlo manualmente",
+		"cache_reset": "Reinicializar la caché",
+		"cache_reset_ok": "Caché reiniciada",
+		"delete_settings": "Datos de la aplicación",
+		"delete_text": "Pulsa el botón si quieres eliminar todos los datos de la app. \n Importante!. No se eliminarán los datos del servidor. Estos los puedes eliminar desde el apartado 'Ajustes de la cuenta'",
+		"delete_data": "Eliminar datos de la aplicación",
+		"delete_ok": "Datos locales eliminados correctamente"
+	},
     "modal_add":{
         "title": "Añadir un enlace",
         "link_desc": "Descripción del enlace",

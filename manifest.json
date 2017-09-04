@@ -1,0 +1,58 @@
+{
+	"name": "Vikserver",
+	"short_name": "Vikserver",
+	"start_url": "index.html",
+	"background_color": "#819ca9",
+	"description": "Your safest link vault",
+	"lang": "en",
+	"display": "fullscreen",
+	"orientation": "any",
+	"scope": "/",
+	"icons": [
+		{
+			"src": "lib/iconos/faviconx48.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "lib/iconos/faviconx96.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "lib/iconos/faviconx128.png",
+			"type": "image/png",
+			"sizes": "128x128"
+		},
+		{
+			"src": "lib/iconos/faviconx152.png",
+			"type": "image/png",
+			"sizes": "152x152"
+		},
+		{
+			"src": "lib/iconos/faviconx144.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "lib/iconos/faviconx192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "lib/iconos/faviconx256.png",
+			"type": "image/png",
+			"sizes": "256x256"
+		},
+		{
+			"src": "lib/iconos/faviconx384.png",
+			"type": "image/png",
+			"sizes": "384x384"
+		},
+		{
+			"src": "lib/iconos/faviconx512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}

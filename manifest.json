@@ -3,6 +3,7 @@
 	"short_name": "Vikserver",
 	"start_url": "index.html",
 	"background_color": "#819ca9",
+	"theme_color": "#002071",
 	"description": "Your safest link vault",
 	"lang": "en",
 	"display": "fullscreen",

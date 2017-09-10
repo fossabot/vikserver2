@@ -17,5 +17,5 @@ deploy:
     provider: script
     script: .travis/after_success.sh
     on:
-        branch: develop
+        branch: master
         tags: false

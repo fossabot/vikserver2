@@ -19,7 +19,7 @@ this.addEventListener("install", event=>{
 		caches.open(cacheName).then(cache=>{
 			return cache.addAll(urlsToCache);
 		}),
-		fetch("lib/jsloader/loader.js").then(a=>{
+		fetch("bower_components/loadlify/loadlify.js").then(a=>{
 			if(a.ok) return a.text();
 			Promise.reject("No se puede cargar el loader");
 		}).then(a=>{
@@ -109,7 +109,7 @@ this.addEventListener("sync", event=>{
     if(event.isTrusted!=true) return console.warn("WARNING!!! UNTRUSTED SYNC EVENT!", event);
     let functions={
         update_db: function (){
-			if(typeof dbProgress=="undefined") throw new Error("DB not loaded");
+			if(typeof dbProgress=="undefined") return console.warn("DB is not loaded");
 			return dbProgress.then(db.open()).then(()=>{
 				console.log("Updating DB");
 				var userArray=[];

@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "Instalando bower"
+npm i bower
+echo "Instalando módulos de bower"
+bower install
 echo "Eliminando módulos de Node"
 rm -rf node_modules
 echo "Limpiando elementos inecesarios"

@@ -1,7 +1,7 @@
 {
   "name": "vikserver",
   "version": "0.0.1",
-  "description": "Almaacén de links enfocado en la velocidad",
+  "description": "Almacén de links enfocado en la velocidad",
   "main": "main.js",
   "scripts": {
     "test": "node test.js",
@@ -16,7 +16,6 @@
     "links",
     "jquery",
     "mysql",
-    "php",
     "nodeJS"
   ],
   "author": "MrViK",

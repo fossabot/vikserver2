@@ -13,6 +13,6 @@
 [submodule "lib/openpgp"]
 	path = lib/openpgp
 	url = https://github.com/openpgpjs/openpgpjs.git
-[submodule "lib/jsloader"]
-	path = lib/jsloader
-	url = https://github.com/mrvik/jsloader.git
+[submodule "lib/loadlify"]
+	path = lib/loadlify
+	url = https://github.com/mrvik/loadlify.git

@@ -16,7 +16,7 @@ before_install:
 deploy:
     skip_cleanup: true
     provider: script
-    script: .travis/after_success.sh
+    script: .travis/deploy.sh
     on:
         branch: master
         tags: false

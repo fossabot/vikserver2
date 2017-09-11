@@ -18,7 +18,8 @@
         "cancel": "Cancel",
         "delete": "Delete",
         "edit": "Edit",
-		"close": "Close"
+		"close": "Close",
+		"share": "Share"
     },
 	"settings":{
 		"settings": "Settings",

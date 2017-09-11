@@ -1,6 +1,4 @@
 #!/bin/bash
-echo "Eliminando módulos de Node"
-rm -rf node_modules
 echo "Limpiando elementos inecesarios"
 rm -rf lib/typedjs/docs lib/typedjs/src
 rm -rf lib/vex/docs lib/vex/sass lib/vex/src lib/vex/test

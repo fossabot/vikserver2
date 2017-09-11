@@ -19,7 +19,7 @@ this.addEventListener("install", event=>{
 		caches.open(cacheName).then(cache=>{
 			return cache.addAll(urlsToCache);
 		}),
-		fetch("bower_components/loadlify/loadlify.js").then(a=>{
+		fetch("lib/loadlify/loadlify.js").then(a=>{
 			if(a.ok) return a.text();
 			Promise.reject("No se puede cargar el loader");
 		}).then(a=>{

@@ -14,7 +14,6 @@ before_install:
  - sudo apt-get update -q
  - sudo apt-get install curlftpfs -y
 deploy:
-    skip_cleanup: true
     provider: script
     script: .travis/deploy.sh
     on:

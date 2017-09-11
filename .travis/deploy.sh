@@ -2,7 +2,6 @@
 echo "Eliminando módulos de Node"
 rm -rf node_modules
 echo "Limpiando elementos inecesarios"
-rm -rf lib/fontAwesome/src lib/fontAwesome/scss lib/fontAwesome/less
 rm -rf lib/typedjs/docs lib/typedjs/src
 rm -rf lib/vex/docs lib/vex/sass lib/vex/src lib/vex/test
 rm -rf lib/socket.io/docs lib/socket.io/lib lib/socket.io/support lib/socket.io/test
@@ -14,7 +13,6 @@ mkdir .travis/ftp
 echo "Montando FTP con fuse"
 sudo curlftpfs -o allow_other,user=$FTP_USER:$FTP_PASSWORD ftp://victor.zona.digital .travis/ftp
 echo "Copiando los archivos al FTP"
-#cp -rvu * .travis/ftp/public_html
 mkdir /tmp/rsync
 rsync -rv --delete --temp-dir=/tmp/rsync * .travis/ftp/public_html
 echo "Desmontando FTP"

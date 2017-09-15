@@ -4,13 +4,22 @@
 			<li>
 				<div data-desc class="nosel collapsible-header">{{descripción}}</div>
 				<div class="collapsible-body">
-					<a href="{{link}}" target="_blanc" rel="noopener">{{link}}</a>
+					Link: <a href="{{link}}" target="_blanc" rel="noopener">{{link}}</a>
+					{{#if shared}}
+					Short link: <a href="{{shared}}" target="_blanc" rel="noopener">{{shared}}</a>
+					{{/if}}
 					<div class="fixed-action-btn toolbar">
 						<a class="btn-floating btn-large red"><i class="material-icons">mode_edit</i></a>
 						<ul data-uid="{{uid}}">
 							<li class="waves-effect waves-effect-light links-eliminar"><a href="#"><i class="material-icons">delete_forever</i> __delete__</a></li>
 							<li class="waves-effect waves-effect-light links-editar"><a href="#"><i class="material-icons">mode_edit</i> __edit__</a></li>
-							<li class="waves-effect waves-effect-light links-publicar"><a href="#"><i class="material-icons">share</i> __share__</a></li>
+							<li class="waves-effect waves-effect-light links-publicar"><a href="#"><i class="material-icons">share</i>
+								{{#if shared}}
+									__unshare__
+								{{else}}
+									__share__
+								{{/if}}
+							</a></li>
 						</ul>
 					</div>
 				</div>

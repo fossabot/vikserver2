@@ -18,7 +18,9 @@
         "cancel": "Cancel",
         "delete": "Delete",
         "edit": "Edit",
-		"close": "Close"
+		"close": "Close",
+		"share": "Share",
+		"unshare": "Unshare"
     },
 	"settings":{
 		"settings": "Settings",
@@ -54,7 +56,10 @@
         "wont_change": "No changes will be made",
         "welcome": "Welcome",
         "under_devel": "This section is under development, some things may not work",
-        "disconnect": "Disconnected"
+        "disconnect": "Disconnected",
+		"confirm_public": "If you share this link, it won't be ciphered and can be seen by anybody that has the short link",
+		"confirm_del_public": "Short link will stop working",
+		"short_ok": "Link is avaiable at {{short}}"
     },
     "sync":{
         "sync_running": "Sync was running"

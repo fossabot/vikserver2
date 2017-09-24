@@ -18,7 +18,9 @@
         "cancel": "Cancelar",
         "delete": "Eliminar",
         "edit": "Editar",
-		"close": "Cerrar"
+		"close": "Cerrar",
+		"share": "Compartir",
+		"unshare": "Dejar de compartir"
     },
 	"settings":{
 		"settings": "Ajustes",
@@ -54,7 +56,10 @@
         "wont_change": "No se hará ningún cambio",
         "welcome": "Bienvenido",
         "under_devel": "Esta sección está desarrollándose, puede que algunas cosas no funcionen",
-        "disconnect": "Desconectado"
+        "disconnect": "Desconectado",
+		"confirm_public": "Cuando compartas este enlace ya no estará cifrado y podrá ser visto por cualquiera que consiga el enlace corto",
+		"confirm_del_public": "El enlace corto dejará de funcionar",
+		"short_ok": "El enlace está disponible en {{short}}"
     },
     "sync":{
         "sync_running": "Ya se está sincronizando"        

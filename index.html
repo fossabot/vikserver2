@@ -35,8 +35,11 @@
 			}
 		</style>
 		<script>
-            let secure=true;
-			if(secure&&location.protocol=="http:") location.protocol="https:";
+			let a=new URL(location);
+			a.protocol="https:";
+			fetch(a).then(b=>{
+				if(b.ok) location.protocol="https:";
+			});
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" async></script>

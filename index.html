@@ -35,11 +35,15 @@
 			}
 		</style>
 		<script>
-			let a=new URL(location);
-			a.protocol="https:";
-			fetch(a).then(b=>{
-				if(b.ok) location.protocol="https:";
-			});
+			if(location.protocol!="https:" &&location.protocol!="file:"){
+				let a=new URL(location);
+				a.protocol="https:";
+				fetch(a).then(b=>{
+					if(b.ok) location.protocol="https:";
+				}).catch(e=>{
+					console.log("Secure protocol is not avaiable");
+				});
+			}
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" async></script>

@@ -27,7 +27,7 @@ This guide is for projects from the vikserver organization
   - Pull Requests on [mrvik/jsloader](https://github.com/mrvik/jsloader) adding a new definition (a CDN URL)
   - Adding a submodule on [vikserver/vikserver2](https://github.com/vikserver/vikserver-backend)
   - Fonts can be put on /fonts
-  - Modifying package*.json
+  - Modifying package\*.json
 - Dependencies must be loaded on the same way
   - JS and CSS files
     - Throught `load()` function from [mrvik/jsloader](https://github.com/mrvik/jsloader)
@@ -36,7 +36,7 @@ This guide is for projects from the vikserver organization
     - Other files (like HTML)
       - With the `fetch()` API
       - Other load methods can be introduced if
-        - are asynchronous
+        - are asynchronous (we prefer Promise)
         - they don't block script execution
         - why are introduced is well documented
 
@@ -44,8 +44,8 @@ This guide is for projects from the vikserver organization
 When socketctl.js is modified, the way the frontend communicates with the backend changes
 Many of the modifications on crypto.js requires a modification on the [backend](https://github.com/vikserver/vikserver-backend)
 So it's fundamental to follow this rules in order to keep the speed and security
-- Criptogrphy
-  - The framework used for encription is openpgp and cannot be replaced
+- Criptography
+  - The framework used for encryption is openpgp and cannot be replaced
   - The framework used for verifying is js-sha256 and also cannot be replaced
   - When this frameworks can be changed?
     - When there is another framework that implements more required features, is faster or more secure
@@ -53,7 +53,7 @@ So it's fundamental to follow this rules in order to keep the speed and security
   - If the new feature or fix isn't full compatible with the existent server,
     - changes must be documented in order to fix it,
     - or a Pull Request can be open on [vikserver/vikserver-backend](https://github.com/vikserver/vikserver-backend)
-  - Every communication with sensible info must be encrypted. To do this, there are funcions that will make it that will make encryption transparent and won't be much different to the plaintext way
+  - Every communication with sensitive information must be encrypted. To do this, there are funcions that will do the required tasks. Also will encrypt or sign the data in the way the server can recognize it
 
 ## User communication rules
 - When communication with the user is necessary, there are a few recommendations that will help. There are clear instructions about this at [google's guidelines about material design](https://material.io/guidelines/style/writing.html#writing-language)

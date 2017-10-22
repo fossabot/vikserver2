@@ -27,7 +27,7 @@ This guide is for projects from the vikserver organization
   - Pull Requests on [mrvik/jsloader](https://github.com/mrvik/jsloader) adding a new definition (a CDN URL)
   - Adding a submodule on [vikserver/vikserver2](https://github.com/vikserver/vikserver-backend)
   - Fonts can be put on /fonts
-  - Modifying package\*.json
+  - Modifying package*.json
 - Dependencies must be loaded on the same way
   - JS and CSS files
     - Throught `load()` function from [mrvik/jsloader](https://github.com/mrvik/jsloader)

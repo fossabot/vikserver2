@@ -2,7 +2,7 @@
 Thanks for contributing. Please take a minute and fulfill this form
 Please, remove the lines that doesn't apply
 
-## Chacklist (Don't remove items)
+## Checklist (Don't remove items)
 - [ ] Node modules aren't uploaded, just included in package.json
 - [ ] Doesn't use bower
 - [ ] Everything that has changed is working. (Else make a pull request to other branch than master)

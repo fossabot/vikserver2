@@ -52,6 +52,7 @@
         "link_modified": "Link modified [OK]",
         "link_deleted": "Link deleted [OK]",
         "link_will_delete": "Will delete link to ",
+		"pub_link_modified": "Public link has been modified",
         "sure_to_continue": " Do you want to continue?",
         "wont_change": "No changes will be made",
         "welcome": "Welcome",

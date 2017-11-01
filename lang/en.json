@@ -60,7 +60,8 @@
         "disconnect": "Disconnected",
 		"confirm_public": "If you share this link, it won't be ciphered and can be seen by anybody that has the short link",
 		"confirm_del_public": "Short link will stop working",
-		"short_ok": "Link is avaiable at {{short}}"
+		"short_ok": "Link is avaiable at {{short}}",
+		"nosw": "There isn't a ServiceWorker running"
     },
     "sync":{
         "sync_running": "Sync was running"

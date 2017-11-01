@@ -60,7 +60,8 @@
         "disconnect": "Desconectado",
 		"confirm_public": "Cuando compartas este enlace ya no estará cifrado y podrá ser visto por cualquiera que consiga el enlace corto",
 		"confirm_del_public": "El enlace corto dejará de funcionar",
-		"short_ok": "El enlace está disponible en {{short}}"
+		"short_ok": "El enlace está disponible en {{short}}",
+		"nosw": "No hay ningún ServiceWorker funcionando"
     },
     "sync":{
         "sync_running": "Ya se está sincronizando"        

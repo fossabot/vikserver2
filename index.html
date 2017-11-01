@@ -46,11 +46,10 @@
 			}
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js" async></script>
 		<script>
 			self.noExports=true;
 			function beginLoad(){
-				load(["handlebars", "vex", "materialize"]).then(()=>{
+				load(["jquery", "handlebars", "vex", "materialize"]).then(X=>{
 					load("core/main.js").then(()=>{
 						$("#cargando").hide(200);
 						$("#main").show(200);

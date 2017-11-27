@@ -1,7 +1,7 @@
 'use strict';
 //WORKING BRANCH
 //ServiceWorker v0.3 Development
-//Service Worker
+//Ajustes del ServiceWorker
 var cacheName="vikserver-v"+0.1;
 var cacheList=[];
 var urlsToCache=[
@@ -13,6 +13,8 @@ var urlsToCache=[
 	'lang/es.json',
 	'lang/en.json'
 ];
+
+//Eventos que maneja el ServiceWorker
 this.addEventListener("install", event=>{
 	console.log(">> Instalando ServiceWorker");
 	event.waitUntil(Promise.all([
@@ -21,7 +23,7 @@ this.addEventListener("install", event=>{
 		}),
 		fetch("lib/loadlify/loadlify.js").then(a=>{
 			if(a.ok) return a.text();
-			Promise.reject("No se puede cargar el loader");
+			Promise.reject("No se puede cargar loadlify");
 		}).then(a=>{
 			let b=new Function(a);
 			b();
@@ -29,7 +31,7 @@ this.addEventListener("install", event=>{
 		})
 	]));
 });
-///////////////////////////////////
+/////////////////////
 this.addEventListener("fetch", event=>{
 	event.respondWith(
 		caches.match(event.request).then(response=>{
@@ -45,7 +47,7 @@ this.addEventListener("fetch", event=>{
 		})
 	);
 });
-/////////////////////////////////
+/////////////////////
 this.addEventListener("activate", event=>{
 	console.log(">> Activando ServiceWorker");
 	event.waitUntil(
@@ -55,15 +57,18 @@ this.addEventListener("activate", event=>{
 					return caches.delete(key);
 				}
 			}));
-		})
+		}),
+		load("core/clases.js")
 	);
 });
-/////////////////////////////////
+/////////////////////
 this.addEventListener("push", event=>{
 	console.log(event);
 	console.log(event.data.text());
 });
-/////////////////////////////////
+///////////////////////////////////////////////////////////////
+
+//Manejo de los mensajes al SW
 this.addEventListener("message", event=>{
 	var msg=event.data;
 	console.log(msg);
@@ -95,36 +100,53 @@ async function mhandler(a){
 				return self.db.close();
 		}
 	}
+	async function dbpoolctl(b){
+		switch(b.tipo){
+			case "init":
+				console.log(b);
+				if(typeof self.dbpool!="object") return self.dbpool={};
+				return self.dbpool;
+			case "put":
+				self.dbpool[b.usuario]=b.datos;
+				return true;
+			case "del":
+				return delete self.dbpool[b.usuario];
+			default:
+				return new Error(`Unknown event type ${a.tipo}/${b.tipo}`);
+		}
+	}
 	switch(a.tipo){
 		case "cache":
 			return await cache(a.datos);
 		case "db":
 			return await db(a.datos);
+		case "dbpool":
+			return await dbpoolctl(a.datos);
 		default:
 			return "Unhandled!!";
 	}
 }
+///////////////////////////////////////////////////////////////
+
+//Manejo de los eventos de sincronización
 this.addEventListener("sync", event=>{
     console.log("Sync event: "+event.tag);
     if(event.isTrusted!=true) return console.warn("WARNING!!! UNTRUSTED SYNC EVENT!", event);
     let functions={
-        update_db: function (){
-			if(typeof dbProgress=="undefined") return console.warn("DB is not loaded");
-			return dbProgress.then(db.open()).then(()=>{
-				console.log("Updating DB");
-				var userArray=[];
-				return db.transaction("r", db.Usuarios, ()=>{
-					db.Usuarios.toCollection().each(a=>{
-						userArray.push(a.Usuario);
-					});
-				}).then(()=>{
-					console.log(userArray);
-				}).catch(console.error);
+		["test-tag-from-devtools"]: function(){console.log("Test sync event handled")},
+		test: function(){console.log("Sync events are working")},
+        dbpool_send: function(){
+			console.log(self.dbpool);
+			let payload={sync: "dbpush", data: self.dbpool};
+			console.log(payload);
+			Vik.post({
+				url: "vikserver-api.herokuapp.com",
+				data: payload
+			}).then(a=>{
+				console.log(a);
 			});
-        }
+		},
     };
-	console.log(functions);
-    functions["test-tag-from-devtools"]=function(){console.log("Sync event handled")};
     if(functions.hasOwnProperty(event.tag)!=true) return console.warn("Undefined handler for "+event.tag);
     return functions[event.tag]();
 });

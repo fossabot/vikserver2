@@ -13,6 +13,17 @@ var urlsToCache=[
 	'lang/es.json',
 	'lang/en.json'
 ];
+var nocache=[
+	"socket.io",
+	"https://mrvikxd.ddns.net/api",
+	"https://vikserver-api.herokuapp.com"
+];
+function nocacheurl(a){
+	for(let url in nocache){
+		if(a.match(url))return true;
+	}
+	return false;
+}
 
 //Eventos que maneja el ServiceWorker
 this.addEventListener("install", event=>{
@@ -38,7 +49,7 @@ this.addEventListener("fetch", event=>{
 			return response || fetch(event.request).then(response=>{
 				return caches.open(cacheName).then(cache=>{
 					if(event.request.url.match(/(http([s]|):\/\/)/g)){
-						if(event.request.url.match("socket.io")) return response;
+						if(nocacheurl(event.request.url)) return response;
 						cache.put(event.request, response.clone());
 					}
 					return response;
@@ -58,7 +69,36 @@ this.addEventListener("activate", event=>{
 				}
 			}));
 		}),
-		load("core/clases.js")
+		load("core/clases.js").then(x=>{
+			let functions={
+				["test-tag-from-devtools"]: function(resolver, rechazar){
+					let a="Test event catched";
+					if(Date.now()%2){
+						a+=". Rejecting Promise";
+						console.log(a);
+						return rechazar(a);
+					}
+					a+=". Resolving Promise";
+					console.log(a);
+					return resolver(a);
+				},
+				test: function(){console.log("Sync events are working")},
+				dbpool_send: function(){
+					console.log(self.dbpool);
+					let payload={sync: "dbpush", data: self.dbpool};
+					console.log(payload);
+					Vik.post({
+						url: "/api",
+						data: payload
+					}).then(a=>{
+						console.log(a);
+						resolver(a);
+					});
+				}
+			};
+			console.log(">>ServiceWorker activado correctamente");
+			return self.syncManager=new SM(functions);
+		})
 	);
 });
 /////////////////////
@@ -131,22 +171,9 @@ async function mhandler(a){
 //Manejo de los eventos de sincronización
 this.addEventListener("sync", event=>{
     console.log("Sync event: "+event.tag);
-    if(event.isTrusted!=true) return console.warn("WARNING!!! UNTRUSTED SYNC EVENT!", event);
-    let functions={
-		["test-tag-from-devtools"]: function(){console.log("Test sync event handled")},
-		test: function(){console.log("Sync events are working")},
-        dbpool_send: function(){
-			console.log(self.dbpool);
-			let payload={sync: "dbpush", data: self.dbpool};
-			console.log(payload);
-			Vik.post({
-				url: "vikserver-api.herokuapp.com",
-				data: payload
-			}).then(a=>{
-				console.log(a);
-			});
-		},
-    };
-    if(functions.hasOwnProperty(event.tag)!=true) return console.warn("Undefined handler for "+event.tag);
-    return functions[event.tag]();
+	event.waitUntil(new Promise((resolver,rechazar)=>{
+		if(event.isTrusted!=true) return rechazar(new Error("Untrusted sync event!"));
+		if(syncManager.has(event.tag)!=true) return rechazar(new Error("Undefined handler for "+event.tag));
+		syncManager.do[event.tag](resolver, rechazar);
+	}));
 });

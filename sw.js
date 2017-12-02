@@ -83,7 +83,7 @@ this.addEventListener("activate", event=>{
 					return resolver(a);
 				},
 				test: function(){console.log("Sync events are working")},
-				dbpool_send: function(){
+				dbpool_send: function(resolver, rechazar){
 					console.log(self.dbpool);
 					let payload={sync: "dbpush", data: self.dbpool};
 					console.log(payload);

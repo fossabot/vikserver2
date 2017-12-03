@@ -1,6 +1,38 @@
 'use strict';
 //WORKING BRANCH
 //ServiceWorker v0.3 Development
+//Scripts necesarios para el ServiceWorker
+importScripts("lib/loadlify/loadlify.js");
+load("core/db.js");
+load("core/clases.js", "es6").then(x=>{
+	let functions={
+		["test-tag-from-devtools"]: function(resolver, rechazar){
+			let a="Test event catched";
+			if(Date.now()%2){
+				a+=". Rejecting Promise";
+				console.log(a);
+				return rechazar(a);
+			}
+			a+=". Resolving Promise";
+			console.log(a);
+			return resolver(a);
+		},
+		test: function(){console.log("Sync events are working")},
+		dbpool_send: function(resolver, rechazar){
+			console.log(self.dbpool);
+			let payload={sync: "dbpush", data: self.dbpool};
+			console.log(payload);
+			Vik.post({
+				url: "/api",
+				data: payload
+			}).then(a=>{
+				console.log(a);
+				resolver(a);
+			});
+		}
+	};
+	return self.syncManager=new x.exports.clases.MSyncManager(functions);
+});
 //Ajustes del ServiceWorker
 var cacheName="vikserver-v"+0.1;
 var cacheList=[];
@@ -31,14 +63,6 @@ this.addEventListener("install", event=>{
 	event.waitUntil(Promise.all([
 		caches.open(cacheName).then(cache=>{
 			return cache.addAll(urlsToCache);
-		}),
-		fetch("lib/loadlify/loadlify.js").then(a=>{
-			if(a.ok) return a.text();
-			Promise.reject("No se puede cargar loadlify");
-		}).then(a=>{
-			let b=new Function(a);
-			b();
-			return load("core/db.js");
 		})
 	]));
 });
@@ -68,36 +92,6 @@ this.addEventListener("activate", event=>{
 					return caches.delete(key);
 				}
 			}));
-		}),
-		load("core/clases.js").then(x=>{
-			let functions={
-				["test-tag-from-devtools"]: function(resolver, rechazar){
-					let a="Test event catched";
-					if(Date.now()%2){
-						a+=". Rejecting Promise";
-						console.log(a);
-						return rechazar(a);
-					}
-					a+=". Resolving Promise";
-					console.log(a);
-					return resolver(a);
-				},
-				test: function(){console.log("Sync events are working")},
-				dbpool_send: function(resolver, rechazar){
-					console.log(self.dbpool);
-					let payload={sync: "dbpush", data: self.dbpool};
-					console.log(payload);
-					Vik.post({
-						url: "/api",
-						data: payload
-					}).then(a=>{
-						console.log(a);
-						resolver(a);
-					});
-				}
-			};
-			console.log(">>ServiceWorker activado correctamente");
-			return self.syncManager=new SM(functions);
 		})
 	);
 });
@@ -171,9 +165,14 @@ async function mhandler(a){
 //Manejo de los eventos de sincronización
 this.addEventListener("sync", event=>{
     console.log("Sync event: "+event.tag);
-	event.waitUntil(new Promise((resolver,rechazar)=>{
+	let action=new Promise((resolver,rechazar)=>{
 		if(event.isTrusted!=true) return rechazar(new Error("Untrusted sync event!"));
 		if(syncManager.has(event.tag)!=true) return rechazar(new Error("Undefined handler for "+event.tag));
 		syncManager.do[event.tag](resolver, rechazar);
-	}));
+	});
+	event.waitUntil(action);
+	action.catch(e=>{
+		console.error(e);
+		console.warn(`Error while handling a sync event named ${event.tag}: ${e.toString()}`);
+	});
 });

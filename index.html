@@ -50,7 +50,8 @@
 		<script>
 			self.noExports=true;
 			function beginLoad(){
-				load(["jquery", "handlebars", "vex", "materialize"]).then(X=>{
+				load("vex");
+				load(["handlebars", "materialize"]).then(X=>{
 					load("core/main.js").then(()=>{
 						$("#cargando").hide(200);
 						$("#main").show(200);

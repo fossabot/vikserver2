@@ -1,55 +1,54 @@
 "use-strict";
-if(typeof fetch=="undefined"){
-	var path=require("path");
+//INIT
+if (typeof process == "undefined"){
+	throw new Error("Test cannot run into a navigator");
 }
-function nodeTest(){
-	const fs=require("fs");
-	const path=require("path");
-	let dependencias=(function(){
-		let deps;
+console.log("Testing from NodeJS");
+console.log("Preparing modules...");
+const util=require("util");
+const exec=util.promisify(require("child_process").exec);
+//TESTS
+testSyntax().then(a=>{
+	console.log("Syntax tested OK with exit status "+a);
+	process.exit(a);
+}).catch(e=>{
+	console.error("Syntax test failed with status "+e.toString());
+	console.error(e);
+	process.exit(e.number);
+});
+//FUNCTIONS
+async function testSyntax(){
+	let lista=await list("lib/core/*.js");
+	lista=lista.stdout.split("\n");
+	lista.pop();
+	(await list("./*.js")).stdout.split("\n").forEach(a=>lista.push(a));
+	lista.pop();
+	console.log(lista);
+	let errores=[];
+	for(let i in lista){
+		let actual=lista[i];
+		console.log("Testing "+actual);
 		try{
-			deps=JSON.parse(fs.readFileSync("package.json")).dependencies;
+			let salida=await xc(`babel ${actual}`);
+			console.log(`${actual} tested OK`);
 		}catch(e){
+			console.log(`${actual} has errors`);
 			console.error(e);
-			throw new Error("No hemos podido cargar el descriptor del paquete");
+			errores.push(actual);
 		}
-		return deps;
-	})();
-	Object.keys(dependencias).forEach(a=>{
-		try{
-			if(require(a)==undefined){
-				throw "El módulo de Node "+a+" no está instalado y se requiere";
-			}else{
-				console.log("El módulo "+a+" está instalado correctamente");
-			}
-		}catch(e){
-			console.error(e);
-			throw new Error("Uno de los módulos de NodeJS no está instalado: "+a);
-		}
-	});
-	return true;
+	}
+	let err=new Error(`Files ${errores.join(",")} contained errors. Please fix it`);
+	if(errores.length>0){
+		err.number=errores.length;
+		throw err;
+	}
+	return 0;
 }
-function test(){
-	return testNav();
+async function list(a){
+	let items= a||"";
+	return await xc(`ls ${items}`);
 }
-function testNav(){
-	return new Promise((resolver, rechazar)=>{
-		try{
-			Object.keys(loaderDefs).forEach(a=>{
-				if(a!="test"){
-					console.log("Probando a cargar "+a);
-					load(a);
-				}
-			});
-			resolver(true);
-		}catch(e){
-			console.error("No hemos podido cargar uno de los módulos definidos en el cargador");
-			throw e;
-		}
-	});
-}
-if(typeof process !="undefined"){
-	nodeTest();
-}else{
-	test();
+async function xc(a){
+	const {stdout, stderr} =await exec(a);
+	return {stdout, stderr};
 }

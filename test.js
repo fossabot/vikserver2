@@ -1,10 +1,10 @@
 "use-strict";
+console.log("__VIKSERVER TEST ENGINE__")
 //INIT
 if (typeof process == "undefined"){
 	throw new Error("Test cannot run into a navigator");
 }
-console.log("Testing from NodeJS");
-console.log("Preparing modules...");
+console.log("Preparing Node modules...");
 const util=require("util");
 const exec=util.promisify(require("child_process").exec);
 //TESTS
@@ -18,25 +18,27 @@ testSyntax().then(a=>{
 });
 //FUNCTIONS
 async function testSyntax(){
+	console.log("Getting file list...");
 	let lista=await list("lib/core/*.js");
 	lista=lista.stdout.split("\n");
 	lista.pop();
 	(await list("./*.js")).stdout.split("\n").forEach(a=>lista.push(a));
 	lista.pop();
-	console.log(lista);
+	console.log(`Files to test: ${lista.join(",")}`);
 	let errores=[];
 	for(let i in lista){
 		let actual=lista[i];
 		console.log("Testing "+actual);
 		try{
 			let salida=await xc(`babel ${actual}`);
-			console.log(`${actual} tested OK`);
+			console.log(`${actual} test OK`);
 		}catch(e){
-			console.log(`${actual} has errors`);
+			console.log(`${actual} contains errors`);
 			console.error(e);
 			errores.push(actual);
 		}
 	}
+	console.log(`Testing function ended after checking ${lista.length} files`);
 	let err=new Error(`Files ${errores.join(",")} contained errors. Please fix it`);
 	if(errores.length>0){
 		err.number=errores.length;

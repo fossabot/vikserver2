@@ -10,7 +10,7 @@
 ## Issue
 - Before any other thing
   - [ ] Ensure you have the latest commit: `git pull`
-  - [ ] Ensure you have updated submodule: `git submodule update --init --recursive`
+  - [ ] Ensure you have updated submodules: `git submodule update --init --recursive`
 - What server are you running?
   - [ ] NodeJS (built-in)
   - [ ] NodeJS (My own server) `you know the code` Specify the GitHub URL if is there

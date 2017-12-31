@@ -1,4 +1,4 @@
-# New PullRequest
+# New Pull Request
 Thanks for contributing. Please take a minute and fulfill this form
 Please, remove the lines that doesn't apply
 

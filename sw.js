@@ -1,6 +1,6 @@
 'use strict';
-//WORKING BRANCH
-//ServiceWorker v0.3 Development
+//MASTER BRANCH
+//ServiceWorker v1.0 Stable
 //Scripts necesarios para el ServiceWorker
 importScripts("lib/loadlify/loadlify.js");
 load("core/db.js");
@@ -34,7 +34,7 @@ load("core/clases.js", "es6").then(x=>{
 	return self.syncManager=new x.exports.clases.MSyncManager(functions);
 });
 //Ajustes del ServiceWorker
-var cacheName="vikserver-v"+0.1;
+var cacheName="vikserver-v"+1.0;
 var cacheList=[];
 var urlsToCache=[
 	'cont/estructura.json',

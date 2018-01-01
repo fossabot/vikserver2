@@ -14,9 +14,3 @@ addons:
     apt:
         packages:
             - curlftpfs
-deploy:
-    provider: script
-    script: .travis/deploy.sh
-    on:
-        branch: master
-        tags: false

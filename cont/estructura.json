@@ -13,6 +13,13 @@
 				"Usuarios":"++id,&Usuario,pgp",
 				"Tablas": "&Usuario,db,fecha"
 			}
+		},
+		{
+			"version": 1.0,
+			"estructura":{
+				"Usuarios":"++id,&Usuario,pgp",
+				"Tablas": "&Usuario,db,fecha"
+			}
 		}
 	],
 	"userdb":{

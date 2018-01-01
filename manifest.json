@@ -6,7 +6,7 @@
 	"theme_color": "#002071",
 	"description": "Your safest link vault",
 	"lang": "en",
-	"display": "fullscreen",
+	"display": "standalone",
 	"orientation": "any",
 	"scope": "/",
 	"icons": [

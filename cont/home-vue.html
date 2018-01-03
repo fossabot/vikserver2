@@ -1,0 +1,29 @@
+<div class="container">
+	<ul class="collapsible popout" data-collapsible="accordion">
+			<li v-for="item in links">
+				<div data-desc class="nosel collapsible-header">{{item.descripción}}</div>
+				<div class="collapsible-body">
+					Link: <a v-bind:href="item.link" target="_blanc" rel="noopener">{{item.link}}</a>
+					<span v-if="item.shared">
+						<hr>
+						Short link: <a shared v-bind:href="item.shared" target="_blanc" rel="noopener">{{item.shared}}</a>
+					</span>
+					<div class="fixed-action-btn toolbar">
+						<a class="btn-floating btn-large red"><i class="material-icons">mode_edit</i></a>
+						<ul v-bind:data-uid="item.uid">
+							<li v-on:click="eliminar(limpiar($event.target))" class="waves-effect waves-effect-light links-eliminar"><a href="#"><i class="material-icons">delete_forever</i> {{lang.delete}} </a></li>
+							<li v-on:click="editar(limpiar($event.target))" class="waves-effect waves-effect-light links-editar"><a href="#"><i class="material-icons">mode_edit</i> {{lang.edit}} </a></li>
+							<li v-on:click="publicar(limpiar($event.target))" class="waves-effect waves-effect-light links-publicar"><a href="#"><i class="material-icons">share</i>
+								<span v-if="item.shared">{{lang.unshare}}</span>
+								<span v-else>{{lang.share}}</span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="acciones" style="display: none !important;">
+					<a href="#" class="btn-flat acciones-ok">{{lang.save}}</a>
+					<a href="#" class="btn-flat acciones-cancelar">{{lang.discard}}</a>
+				</div>
+			</li>
+	</ul>
+</div>

@@ -2,7 +2,7 @@
 	<ul class="collapsible popout" data-collapsible="accordion">
 			<li v-for="item in links">
 				<div data-desc class="nosel collapsible-header">{{item.descripción}}</div>
-				<div class="collapsible-body">
+				<div class="collapsible-body link-container">
 					Link: <a v-bind:href="item.link" target="_blanc" rel="noopener">{{item.link}}</a>
 					<span v-if="item.shared">
 						<hr>

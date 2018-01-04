@@ -69,6 +69,9 @@ body{
 .negro{
 	color: #000000 !important;
 }
+.link-container{
+	overflow: auto;
+}
 
 /* Elementos por ID */
 #modal-idiomas{

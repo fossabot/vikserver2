@@ -1,17 +1,11 @@
 <div id="modal-idiomas" class="modal modal-fixed-footer">
     <div class="modal-content">
-        {{#with idiomas}}
-            <div class="collection" data-idiomas="container">
-                {{#each this}}
-                    <a href="#" class="collection-item negro" data-idiomas="idioma" data-idioma="{{abbr}}">{{completo}}</a>
-                {{/each}}
-            </div>
-        {{/with}}
+		<div class="collection" data-idiomas="container">
+			<a v-for="idioma in idiomas" href="#" class="collection-item negro" data-idiomas="idioma" v-bind:data-idioma="idioma.abbr">{{idioma.completo}}</a>
+		</div>
     </div>
     <div class="modal-footer">
-    {{#with lang.btn}}
-        <a href="#" class="modal-action modal-close btn-flat" data-idiomas="cancelar">{{cancel}} <i class="material-icons">cancel</i></a>
-        <a href="#" data-idiomas='guardar' class="modal-action modal-close btn-flat" data-idiomas="guardar">{{ok}} <i class="material-icons">save</i></a>
-    {{/with}}
+        <a href="#" class="modal-action modal-close btn-flat" data-idiomas="cancelar">{{lang.btn.cancel}} <i class="material-icons">cancel</i></a>
+        <a href="#" data-idiomas='guardar' class="modal-action modal-close btn-flat" data-idiomas="guardar">{{lang.btn.ok}} <i class="material-icons">save</i></a>
     </div>
 </div>

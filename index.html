@@ -51,11 +51,11 @@
 			self.noExports=true;
 			function beginLoad(){
 				load("vex");
-				load("vue-dev");
 				load(["materialize"]).then(X=>{
-					load("core/main.js").then(()=>{
-						$("#cargando").hide();
-						$("#main").show();
+					$("#cargando").hide();
+					$("#main").show();
+					load("vue").then(x=>{
+						load("core/main.js")
 					});
 				});
 			}

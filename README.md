@@ -1,5 +1,6 @@
 # Vikserver2
 [![Build Status](https://travis-ci.org/vikserver/vikserver2.svg?branch=master)](https://travis-ci.org/vikserver/vikserver2)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvikserver%2Fvikserver2.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvikserver%2Fvikserver2?ref=badge_shield)
 
 ### This is the continuation of the Vikserver project
 The vikserver project technologies were old fashioned, so this project has the same target reached with a newer technologies.
@@ -25,3 +26,7 @@ The most important objectives are:
   - ... Incidence solving or information gathering
   - ... New features (They could include modifications in the [backend](https://github.com/vikserver/vikserver-backend))
   - ... Cross-browser compatibility (Internet Explorer isn't supported and won't be a supported browser)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvikserver%2Fvikserver2.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvikserver%2Fvikserver2?ref=badge_large)
